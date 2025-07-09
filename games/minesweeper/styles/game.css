@@ -1,0 +1,210 @@
+/* Base styles */
+body { 
+  font-family: Arial, sans-serif; 
+  text-align: center; 
+  position: relative;
+  margin: 0;
+  padding: 0;
+
+}
+
+.game-container { 
+  display: inline-block; 
+  margin: 20px auto; 
+}
+
+.row { 
+  display: flex; 
+}
+
+.cell { 
+  width: 30px; 
+  height: 30px; 
+  background: #ddd; 
+  text-align: center; 
+  line-height: 30px; 
+  border: 1px solid #999; 
+  font-weight: bold; 
+  cursor: pointer; 
+}
+
+.cell.revealed { 
+  background: #bbb; 
+  cursor: default; 
+}
+
+.cell.mine { 
+  background: red; 
+  color: white; 
+}
+
+.cell.failed {
+  background-color: red;
+}
+
+/* Header */
+.game-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #eee;
+  color: #333;
+  padding: 10px 20px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  margin: 20px auto;
+  width: fit-content;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.game-header__score,
+.game-header__timer {
+  font-size: 1.5rem;
+  min-width: 40px;
+}
+
+.game-header__reset {
+  background-color: #ddd;
+  border: 1px solid #aaa;
+  padding: 6px 14px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.game-header__reset:hover {
+  background-color: #ccc;
+}
+
+.game-header__reset:active {
+  transform: scale(0.95);
+}
+
+/* Go-back button */
+.go-back-button {
+  display: block;               /* Full-width by default, so we can align it with margin */
+  width: fit-content;           /* Shrinks to fit content */
+  margin: 10px 0 0 20px;        /* Top margin + left spacing */
+  background-color: #ddd;
+  border: 1px solid #aaa;
+  padding: 6px 12px;
+  font-size: 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  position: relative;           /* Ensures it's not hidden by absolute elements */
+  z-index: 1;                   /* Keeps it above overlapping elements */
+}
+
+
+.go-back-button:hover {
+  background-color: #ccc;
+}
+.go-back-button:active {
+  transform: scale(0.95);
+}
+
+/* Theme switch container */
+.theme-switch {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  display: flex;
+  align-items: center;
+
+  /* no fixed width—auto size, but with padding */
+  padding: 0 8px;
+  height: 24px;
+}
+
+/* Hidden checkbox */
+.theme-switch input {
+  display: none;
+}
+
+/* Slider (the pill) */
+.theme-switch .slider {
+  flex: none;
+  width: 50px;
+  height: 24px;
+  background-color: #ccc;
+  border-radius: 24px;
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.theme-switch .slider::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 2px; 
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.theme-switch input:checked + .slider {
+  background-color: #666;
+}
+
+.theme-switch input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+/* Sun and Moon icons */
+.theme-switch::before {
+  content: "☀️";
+  font-size: 1.2rem;
+  margin-right: 8px;
+}
+
+.theme-switch::after {
+  content: "🌙";
+  font-size: 1.2rem;
+  margin-left: 8px;
+}
+
+/* Dark mode overrides */
+body.dark-mode {
+  background-color: #2c2a2a;
+  color: #fcba03;
+}
+
+body.dark-mode .game-header {
+  background-color: #222;
+  color: #fcba03;
+  border-color: #444;
+}
+
+body.dark-mode .cell {
+  background: #2b2a2a;
+  border-color: #666;
+  color: #fcba03;
+}
+
+body.dark-mode .cell.revealed {
+  background: #555;
+}
+
+body.dark-mode .cell.mine,
+body.dark-mode .cell.failed {
+  background: #900;
+}
+
+body.dark-mode .game-header__reset,
+body.dark-mode .go-back-button {
+  background-color: #333;
+  border-color: #555;
+  color: #fcba03;
+}
+
+body.dark-mode .game-header__reset:hover,
+body.dark-mode .go-back-button:hover {
+  background-color: #444;
+}

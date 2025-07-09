@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minesweeper</title>
+  <link rel="stylesheet" href="./styles/game.css">
+</head>
+
+<body oncontextmenu="return false;" class="dark-mode">
+  <div id="header"></div>
+
+  <script>
+    fetch('../../../templates/header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+  </script>
+
+  <a href="index.html" class="go-back-button">← Go Back</a>
+  <h1>Minesweeper</h1>
+  <div class="game-header">
+    <div class="game-header__score js-score">🚩0</div>
+    <button class="game-header__reset js-reset">Reset</button>
+    <div class="game-header__timer js-timer">⏱️0</div>
+  </div>
+  <div class="game-container js-game-container">
+
+  </div>
+  <script type="module" src="./scripts/game.js"></script>
+</body>
+
+</html>

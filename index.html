@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Games</title>
+  <style>
+    .games{
+      width: 90%;
+      margin-left: 5%;
+      text-align: center;
+    }
+    .games img{
+      width: 450px;
+      margin: 0px 5px 0px 5px;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+     @media (max-width: 800px) {
+      .games img{
+        width: 90%;
+      }
+     }
+  </style>
+</head>
+<body>
+    <div id="header"></div>
+
+  <script>
+  fetch('templates/header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+    });
+</script>
+<div class="games">
+  <a href="games/trudogame/"><img src="img/trudogame-logo.png"></a>
+  <a href="games/minesweeper/"><img src="img/minesweeper-logo.png"></a>
+</div>
+</body>
+</html>

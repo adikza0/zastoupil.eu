@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trudo game</title>
+  <style>
+    body {
+      text-align: center;
+    }
+    .game{
+      color: #fcba03;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <script>
+  fetch('/templates/header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+    });
+</script>
+  <div class="game">
+  <h1>Trudo game</h1>
+  <button class="js-play">Play</button>
+  <p class="js-score">Score: 10</p>
+  <script type="module" src="./src/main.js"></script>
+  </div>
+</body>
+
+</html>

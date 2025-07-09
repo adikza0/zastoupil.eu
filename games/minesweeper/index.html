@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Launcher</title>
+  <link rel="stylesheet" href="./styles/launcher.css">
+</head>
+<body oncontextmenu="return false;" class="dark-mode">
+  <div id="header"></div>
+
+  <script>
+  fetch('../../../templates/header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+    });
+    </script>
+  
+
+  <div class="container">
+    <h1>Minesweeper Launcher</h1>
+
+    <div class="toolbar">
+      <a href="game.html?mines=10&columns=10&rows=8"><button class="difficulty">Easy</button></a>
+      <a href="game.html?mines=40&columns=18&rows=14"><button class="difficulty">Medium</button></a>
+      <a href="game.html?mines=99&columns=24&rows=20"><button class="difficulty">Hard</button></a>
+    </div>
+
+    <form class="config-form">
+      <label>
+        Rows
+        <input type="number" min="5" max="30" value="10" class="js-rows-input"/>
+      </label>
+      <label>
+        Columns
+        <input type="number" min="5" max="30" value="10"  class="js-columns-input"/>
+      </label>
+      <label>
+        Mines
+        <input type="number" min="1" max="200" value="20" class="js-mines-input"/>
+      </label>
+
+      <button type="button" class="js-play-button go-button">Go</button>
+    </form>
+  </div>
+
+  <script type="module" src="./scripts/launcher.js"></script>
+</body>
+</html>

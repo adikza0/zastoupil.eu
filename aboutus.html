@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>About Us</title>
+<style>
+  .text{
+    color: #fcba03;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <div id="header"></div>
+
+  <script>
+  fetch('templates/header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+    });
+</script>
+<div class="text">
+  <p>We are small indie company with own game platform. Our team consists of two units - the master (that makes prompts) and the slave (ChatGPT) that does the rest. We are better than Steam.</p>
+  <img src="img/logo.png" width="500px">
+</div>
+</body>
+</html>
